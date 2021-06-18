@@ -1,0 +1,25 @@
+.header-superiore{
+    height: 70px;
+}
+
+.header-inferiore{
+    height: 70px;
+    background-color: #29b1dd;
+}
+
+.main-contenitor{
+    height: calc(100vh - 140px);
+    overflow-y: scroll;
+}
+.icon-conteiner{
+    /* height: 100px; */
+    background-color: lightgray;
+}
+
+.ombra{   
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);    
+}
+
+.icon-card{
+   font-size: 30px;
+}
