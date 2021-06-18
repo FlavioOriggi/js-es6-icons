@@ -103,17 +103,39 @@ const icons = [
 icons.forEach((element) => {
     document.getElementById('icon').innerHTML += 
     `
-        <div id="icon" class="col ombra rounded border icon-conteiner text-center p-4">
+        <div id="icon" class="col ombra rounded border icon-conteiner text-center p-4 mt-5">
             <div ><i class="${element.family} ${element.prefix}${element.name} icon-card mb-3"></i></div>
-            <p class="fs-4">${element.name}</p>
+            <p class="fs-5 text-uppercase fw-bold">${element.name}</p>
         </div>  
     `;
 });
 
 
-
-
-
 // Milestone 2 Coloriamo le icone per tipo
+
+const pink = '#f0b3d2';
+const green = '#448300';
+const blue = '#005fd9';
+const black = '#000000'
+
+const newColor = icons.map((element) => {  
+
+    let color = pink;
+    if (type == 'vegetable'){
+        color = green;
+    } else if (type == 'animal'){
+        color = blue;
+    }
+           
+    return {        
+        type : {
+            color: color            
+        }
+    }
+});
+
+
+
+
 
 // Milestone 3: Creiamo una select con i tipi di icone e usiamola per filtrare le icone
