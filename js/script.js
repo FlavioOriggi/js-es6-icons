@@ -100,6 +100,9 @@ const icons = [
     },
 ];
 
+const selection = document.getElementById("selection");
+const icon = document.getElementById("icon");
+
 
 
 
@@ -128,15 +131,6 @@ const getColor = icons.map((element) => {
 
 // console.log(getColor);
 
-getColor.forEach((element) => {
-    document.getElementById('icon').innerHTML += 
-    `
-        <div id="icon" class="col ombra rounded border icon-conteiner text-center p-4 mt-5">
-            <i class="${element.family} ${element.prefix}${element.name} icon-card mt-1" style="color:${element.color}"></i>
-            <p class="fs-5 text-uppercase fw-bold mt-3">${element.name}</p>
-        </div>  
-    `;
-});
 
 
 // Milestone 3: Creiamo una select con i tipi di icone e usiamola per filtrare le icone
@@ -146,11 +140,34 @@ const types = [];
 getColor.forEach((element) => {
   if(!types.includes(element.type)){
     types.push(element.type);
-    types.innerHTML += 
+    selection.innerHTML += 
     `
     <option value="${element.type}">${element.type}</option>
     `
   }
 });
 
-const select = document.getElementById('type');
+selection.addEventListener("change", function(){
+  const option = this.value;
+
+  const filteredIcons = getColor.types((element)=>{
+    return element.type == option;
+  });
+
+  print(filteredIcons);
+  
+  if(option == 'All'){
+    print(getColor);
+  }
+  
+});
+
+getColor.forEach((element) => {
+  document.getElementById('icon').innerHTML += 
+  `
+      <div id="icon" class="col ombra rounded border icon-conteiner text-center p-4 mt-5">
+          <i class="${element.family} ${element.prefix}${element.name} icon-card mt-1" style="color:${element.color}"></i>
+          <p class="fs-5 text-uppercase fw-bold mt-3">${element.name}</p>
+      </div>  
+  `;
+});
