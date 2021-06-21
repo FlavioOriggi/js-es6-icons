@@ -110,24 +110,23 @@ const blue = '#005fd9';
 const green = '#006d31';
 
 
-
 const getColor = icons.map((element) => {  
    
-    let color = pink;
-    if (element.type == 'vegetable'){
-        color = green;
-    } else if (element.type == 'animal'){
-        color = blue;
-    }
+  let color = pink;
+  if (element.type == 'vegetable'){
+      color = green;
+  } else if (element.type == 'animal'){
+      color = blue;
+  }
            
-    return {        
-        ...element,
-        color
-    }
+  return {        
+      ...element,
+      color
+  }
+    
 });
 
-
-console.log(getColor);
+// console.log(getColor);
 
 getColor.forEach((element) => {
     document.getElementById('icon').innerHTML += 
@@ -141,3 +140,17 @@ getColor.forEach((element) => {
 
 
 // Milestone 3: Creiamo una select con i tipi di icone e usiamola per filtrare le icone
+
+const types = [];
+
+getColor.forEach((element) => {
+  if(!types.includes(element.type)){
+    types.push(element.type);
+    types.innerHTML += 
+    `
+    <option value="${element.type}">${element.type}</option>
+    `
+  }
+});
+
+const select = document.getElementById('type');
