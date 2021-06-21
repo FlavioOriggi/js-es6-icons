@@ -162,12 +162,17 @@ selection.addEventListener("change", function(){
   
 });
 
-getColor.forEach((element) => {
-  document.getElementById('icon').innerHTML += 
-  `
-      <div id="icon" class="col ombra rounded border icon-conteiner text-center p-4 mt-5">
-          <i class="${element.family} ${element.prefix}${element.name} icon-card mt-1" style="color:${element.color}"></i>
-          <p class="fs-5 text-uppercase fw-bold mt-3">${element.name}</p>
-      </div>  
-  `;
-});
+print(getColor);
+
+function print(getColor){  
+  
+  getColor.forEach((element) => {
+    document.getElementById('icon').innerHTML += 
+        `
+        <div id="icon" class="col ombra rounded border icon-conteiner text-center p-4 mt-5">
+            <i class="${element.family} ${element.prefix}${element.name} icon-card mt-1" style="color:${element.color}"></i>
+            <p class="fs-5 text-uppercase fw-bold mt-3">${element.name}</p>
+        </div>  
+    `;
+  });
+}
