@@ -150,7 +150,7 @@ getColor.forEach((element) => {
 selection.addEventListener("change", function(){
   const option = this.value;
 
-  const filteredIcons = getColor.types((element)=>{
+  const filteredIcons = getColor.filter((element)=>{
     return element.type == option;
   });
 
@@ -164,8 +164,10 @@ selection.addEventListener("change", function(){
 
 print(getColor);
 
-function print(getColor){  
-  
+function print(getColor){    
+
+  document.getElementById('icon').innerHTML = "";
+
   getColor.forEach((element) => {
     document.getElementById('icon').innerHTML += 
         `
